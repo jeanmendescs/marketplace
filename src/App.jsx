@@ -1,36 +1,19 @@
-import Cart from "./pages/Cart";
-import Home from "./pages/Home";
-import Product from "./pages/Product";
+import { useState } from "react";
+import Routes from "./routes";
+import { CartContext } from "./contexts/CartContext";
+import Header from "./components/Header";
 
-function cartItems() {
-  return [];
-}
+const App = () => {
+  const [cartItems, setCartItems] = useState([]);
 
-function App() {
   return (
     <main>
-      <header>
-        90s shop
-        <nav>
-          <ul style={{ listStyleType: "none", display: "flex" }}>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            |
-            <li>
-              <a href="/cart">Cart ({cartItems().length})</a>
-            </li>
-          </ul>
-        </nav>
-        <hr />
-      </header>
-
-      {window.location.pathname === "/" && <Home />}
-      {window.location.pathname === "/products/b" && <Product />}
-      {window.location.pathname === "/products/a" && <Product />}
-      {window.location.pathname === "/cart" && <Cart cartItems={[]} />}
+      <CartContext.Provider value={{ cartItems, setCartItems }}>
+        <Header />
+        <Routes />
+      </CartContext.Provider>
     </main>
   );
-}
+};
 
 export default App;
