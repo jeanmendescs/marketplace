@@ -3,10 +3,10 @@ const Home = () => {
     <div>
       Welcome to our shop!
       <p>
-        You are probably interested in <a href="/products/a">A</a>.
+        You are probably interested in <a href="/products/1">A</a>.
       </p>
       <p>
-        Check out the newest product <a href="/products/b">B</a>!
+        Check out the newest product <a href="/products/2">B</a>!
       </p>
     </div>
   );
