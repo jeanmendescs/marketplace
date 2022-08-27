@@ -1,9 +1,11 @@
-const Cart = ({ cartItems }) => {
+import "./styles.css";
+
+const Cart = () => {
   return (
     <div>
       Are you ready to purchase these?
       <ul>
-        {cartItems?.map((cartItem) => (
+        {[]?.map((cartItem) => (
           <li key={cartItem}>{cartItem}</li>
         ))}
       </ul>

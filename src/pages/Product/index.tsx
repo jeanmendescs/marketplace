@@ -1,5 +1,5 @@
-import pictureA from "../../assets/a.jpg";
-import pictureB from "../../assets/b.jpg";
+import pictureA from "assets/a.jpg";
+import pictureB from "assets/b.jpg";
 
 const Product = () => {
   return (

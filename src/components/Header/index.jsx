@@ -1,4 +1,4 @@
-const Header = ({ children }) => {
+const Header = () => {
   return (
     <nav>
       <header>
