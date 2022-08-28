@@ -1,12 +1,14 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
   return (
     <div>
       Welcome to our shop!
       <p>
-        You are probably interested in <a href="/products/1">A</a>.
+        You are probably interested in <Link to="/products/1">A</Link>
       </p>
       <p>
-        Check out the newest product <a href="/products/2">B</a>!
+        Check out the newest product <Link to="/products/2">B</Link>!
       </p>
     </div>
   );

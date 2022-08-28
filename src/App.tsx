@@ -2,8 +2,13 @@ import { useState } from "react";
 import Routes from "./routes";
 import { CartContext } from "./contexts/CartContext";
 
+type CartContext = {
+  id: number;
+  quantity: number;
+}[];
+
 const App = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<CartContext>([]);
 
   return (
     <main>

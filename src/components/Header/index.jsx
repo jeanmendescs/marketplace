@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <nav>
@@ -6,11 +8,11 @@ const Header = () => {
         <nav>
           <ul style={{ listStyleType: "none", display: "flex" }}>
             <li>
-              <a href="/">Home</a>
+              <Link to="/">Home </Link>
             </li>
             |
             <li>
-              <a href="/cart">Cart ({[].length})</a>
+              <Link to="/cart">Cart ({[].length})</Link>
             </li>
           </ul>
         </nav>
