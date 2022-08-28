@@ -1,20 +1,12 @@
-import { useState } from "react";
 import Routes from "./routes";
-import { CartContext } from "./contexts/CartContext";
-
-type CartContext = {
-  id: number;
-  quantity: number;
-}[];
+import { CartContextProvider } from "contexts/CartContext";
 
 const App = () => {
-  const [cartItems, setCartItems] = useState<CartContext>([]);
-
   return (
     <main>
-      <CartContext.Provider value={{ cartItems, setCartItems }}>
+      <CartContextProvider>
         <Routes />
-      </CartContext.Provider>
+      </CartContextProvider>
     </main>
   );
 };
