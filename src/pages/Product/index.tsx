@@ -43,7 +43,7 @@ const Product = () => {
           </button>
 
           <button type="button" onClick={() => removeProducts(product.id)}>
-            remove to cart 1
+            Remove from cart
           </button>
 
           <div>
@@ -58,7 +58,7 @@ const Product = () => {
         </div>
       ) : (
         <div>
-          <h1>Resource unavailable or doesn't exist!</h1>
+          <h1>Resource unavailable!</h1>
         </div>
       )}
     </>
