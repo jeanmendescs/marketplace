@@ -4,6 +4,7 @@ import {
   CartItem,
   ShoppingCartProviderProps,
 } from "types/interfaces";
+import PRODUCTS from "data/products.json";
 
 const CartContext = createContext({} as CartContextProps);
 
@@ -16,10 +17,11 @@ export const CartContextProvider = ({
 }: ShoppingCartProviderProps) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
-  const addProducts = (id: number) => {
-    const findCartItemById = cartItems.find((item) => item.id === id);
+  const findCartItemById = (id: number) =>
+    cartItems.find((item) => item.id === id);
 
-    if (findCartItemById) {
+  const addProducts = (id: number) => {
+    if (findCartItemById(id)) {
       return setCartItems((prev) => {
         const increasedCartItems = prev.map((item) => {
           if (item.id === id) {
@@ -35,9 +37,7 @@ export const CartContextProvider = ({
   };
 
   const removeProducts = (id: number) => {
-    const findCartItemQuantityById = cartItems.find(
-      (item) => item.id === id
-    )?.quantity;
+    const findCartItemQuantityById = findCartItemById(id)?.quantity;
 
     if (!findCartItemQuantityById) {
       return;
@@ -61,10 +61,17 @@ export const CartContextProvider = ({
     }
   };
 
-  const getCartTotalItemsQuantity = cartItems.reduce(
+  const getCartItemsTotalQuantity = cartItems.reduce(
     (quantity, item) => item.quantity + quantity,
     0
   );
+
+  const getCartItemsTotalPrice = cartItems.reduce((total, cartItem) => {
+    const findProductByCartItemId = PRODUCTS.find(
+      (item) => item.id === cartItem.id
+    );
+    return total + (findProductByCartItemId?.price || 0) * cartItem.quantity;
+  }, 0);
 
   return (
     <CartContext.Provider
@@ -72,7 +79,8 @@ export const CartContextProvider = ({
         cartItems,
         addProducts,
         removeProducts,
-        getCartTotalItemsQuantity,
+        getCartItemsTotalQuantity,
+        getCartItemsTotalPrice,
       }}
     >
       {children}

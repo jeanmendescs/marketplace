@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCartItems } from "contexts/CartContext";
 
 const Header = () => {
+  const { getCartItemsTotalQuantity: getCartTotalItemsQuantity } =
+    useCartItems();
   return (
     <nav>
       <header>
@@ -10,9 +13,8 @@ const Header = () => {
             <li>
               <Link to="/">Home </Link>
             </li>
-            |
             <li>
-              <Link to="/cart">Cart ({[].length})</Link>
+              <Link to="/cart">Cart {getCartTotalItemsQuantity}</Link>
             </li>
           </ul>
         </nav>
