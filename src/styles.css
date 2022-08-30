@@ -25,6 +25,7 @@ a:hover {
 body {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
+  background-color: #f6f6f6;
 }
 
 .header {
@@ -34,6 +35,7 @@ body {
   align-items: center;
   margin-bottom: 10px;
   border-bottom: 1px solid #826b6b;
+  background-color: #fff;
 }
 
 .header ul {
