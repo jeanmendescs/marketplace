@@ -1,26 +1,29 @@
 import { Link } from "react-router-dom";
 import { useCartItems } from "contexts/CartContext";
+import cartIcon from "assets/cart.svg";
 
 const Header = () => {
   const { getCartItemsTotalQuantity: getCartTotalItemsQuantity } =
     useCartItems();
   return (
-    <nav>
-      <header>
-        90s shop
-        <nav>
-          <ul style={{ listStyleType: "none", display: "flex" }}>
-            <li>
-              <Link to="/">Home </Link>
-            </li>
-            <li>
-              <Link to="/cart">Cart {getCartTotalItemsQuantity}</Link>
-            </li>
-          </ul>
-        </nav>
-        <hr />
-      </header>
-    </nav>
+    <header className="header">
+      <h1>Marketplace</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/" className="home">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/cart" className="cart-item">
+              <img src={cartIcon} alt="Cart icon" className="cart-icon" />
+              <span className="quantity">{getCartTotalItemsQuantity}</span>
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </header>
   );
 };
 
