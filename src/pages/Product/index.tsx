@@ -45,11 +45,11 @@ const Product = () => {
           <p>Quantity: {getCartItemQuantity(Number(productId))}</p>
 
           <button type="button" onClick={() => addProducts(product.id)}>
-            Add to cart
+            Add to Cart
           </button>
 
           <button type="button" onClick={() => removeProducts(product.id)}>
-            Remove from cart
+            Remove from Cart
           </button>
 
           <div>
