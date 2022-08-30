@@ -22,4 +22,5 @@ export interface CartContextProps {
   removeProducts: (id: number) => void;
   getCartItemsTotalQuantity: number;
   getCartItemsTotalPrice: number;
+  getCartItemQuantity: (id: number) => number;
 }

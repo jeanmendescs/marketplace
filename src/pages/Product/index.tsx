@@ -15,7 +15,7 @@ const initialState: IProduct = {
 
 const Product = () => {
   const { productId } = useParams();
-  const { addProducts, removeProducts } = useCartItems();
+  const { addProducts, removeProducts, getCartItemQuantity } = useCartItems();
   const [product, setProduct] = useState<IProduct>(initialState);
 
   useEffect(() => {
@@ -42,6 +42,7 @@ const Product = () => {
           <h1>{product.name}</h1>
           <p>{product.description}</p>
           <p>Price: {product.price}</p>
+          <p>Quantity: {getCartItemQuantity(Number(productId))}</p>
 
           <button type="button" onClick={() => addProducts(product.id)}>
             Add to cart

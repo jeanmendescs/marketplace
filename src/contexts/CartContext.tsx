@@ -66,6 +66,10 @@ export const CartContextProvider = ({
     0
   );
 
+  const getCartItemQuantity = (id: number) => {
+    return cartItems.find((item) => item.id === id)?.quantity || 0;
+  };
+
   const getCartItemsTotalPrice = cartItems.reduce((total, cartItem) => {
     const findProductByCartItemId = PRODUCTS.find(
       (item) => item.id === cartItem.id
@@ -81,6 +85,7 @@ export const CartContextProvider = ({
         removeProducts,
         getCartItemsTotalQuantity,
         getCartItemsTotalPrice,
+        getCartItemQuantity,
       }}
     >
       {children}
