@@ -25,7 +25,7 @@ export const CartContextProvider = ({
       return setCartItems((prev) => {
         const increasedCartItems = prev.map((item) => {
           if (item.id === id) {
-            return { id, quantity: item.quantity++ };
+            return { id, quantity: item.quantity + 1 };
           }
           return item;
         });
@@ -51,7 +51,7 @@ export const CartContextProvider = ({
 
         const decreasedCartItems = prev.map((item) => {
           if (item.id === id) {
-            return { ...item, quantity: item.quantity-- };
+            return { ...item, quantity: item.quantity - 1 };
           }
           return item;
         });
