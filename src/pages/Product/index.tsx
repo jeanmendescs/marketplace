@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Product as IProduct } from "types/interfaces";
 import { useCartItems } from "contexts/CartContext";
 import axios from "axios";
+import { formatCurrency } from "utils/formatCurrency";
 
 const initialState: IProduct = {
   id: 0,
@@ -38,28 +39,40 @@ const Product = () => {
   return (
     <>
       {hasProduct ? (
-        <div>
-          <h1>{product.name}</h1>
-          <p>{product.description}</p>
-          <p>Price: {product.price}</p>
-          <p>Quantity: {getCartItemQuantity(Number(productId))}</p>
-
-          <button type="button" onClick={() => addProducts(product.id)}>
-            Add to Cart
-          </button>
-
-          <button type="button" onClick={() => removeProducts(product.id)}>
-            Remove from Cart
-          </button>
-
-          <div>
+        <div className="product">
+          <div className="content">
             {product.imageName && (
               <img
                 src={require(`assets/${product.imageName}`)}
-                width={640}
                 alt={product.imageAlt}
+                className="image"
               />
             )}
+            <div className="pricing">
+              <strong className="currency">
+                {formatCurrency(product.price)}
+              </strong>
+
+              <div className="actions">
+                <button type="button" onClick={() => addProducts(product.id)}>
+                  +
+                </button>
+                <strong className="quantity">
+                  {getCartItemQuantity(Number(productId))}
+                </strong>
+                <button
+                  type="button"
+                  onClick={() => removeProducts(product.id)}
+                >
+                  -
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="description">
+            <h1>{product.name}</h1>
+            <p>{product.description}</p>
           </div>
         </div>
       ) : (
