@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Product as IProduct } from "types/interfaces";
 import { useCartItems } from "contexts/CartContext";
 import axios from "axios";
 import { formatCurrency } from "utils/formatCurrency";
-
-const initialState: IProduct = {
-  id: 0,
-  name: "",
-  description: "",
-  price: 0,
-  imageName: "",
-  imageAlt: "",
-};
+import { initialState } from "./initialState";
 
 const Product = () => {
   const { productId } = useParams();
   const { addProducts, removeProducts, getCartItemQuantity } = useCartItems();
-  const [product, setProduct] = useState<IProduct>(initialState);
+  const [product, setProduct] = useState(initialState);
 
   useEffect(() => {
     if (productId) {
@@ -43,13 +34,17 @@ const Product = () => {
           <div className="content">
             <div className="description">
               {product.imageName && (
-                <img
-                  src={require(`assets/${product.imageName}`)}
-                  alt={product.imageAlt}
-                />
+                <div className="image-container">
+                  <img
+                    src={require(`assets/${product.imageName}`)}
+                    alt={product.imageAlt}
+                  />
+                </div>
               )}
-              <h1>{product.name}</h1>
-              <p>{product.description}</p>
+              <div>
+                <h1>{product.name}</h1>
+                <p>{product.description}</p>
+              </div>
             </div>
 
             <div className="pricing">
@@ -59,7 +54,7 @@ const Product = () => {
 
               <div className="actions">
                 <button type="button" onClick={() => addProducts(product.id)}>
-                  +
+                  {"\u002b"}
                 </button>
                 <strong className="quantity">
                   {getCartItemQuantity(Number(productId))}
@@ -68,7 +63,7 @@ const Product = () => {
                   type="button"
                   onClick={() => removeProducts(product.id)}
                 >
-                  -
+                  {"\u2212"}
                 </button>
               </div>
             </div>

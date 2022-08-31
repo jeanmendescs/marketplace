@@ -6,6 +6,10 @@
   box-sizing: inherit;
 }
 
+body {
+  max-height: 100vh;
+}
+
 ul {
   list-style: none;
 }
@@ -34,8 +38,8 @@ body {
   padding: 10px 20px;
   align-items: center;
   margin-bottom: 10px;
-  border-bottom: 1px solid #826b6b;
   background-color: #fff;
+  box-shadow: 0 3px 6px rgb(14 30 38 / 15%);
 }
 
 .header ul {
@@ -86,15 +90,28 @@ body {
 }
 
 .product {
+  display: flex;
+  align-items: center;
   padding: 20px;
+  justify-content: center;
 }
 
 .product .description {
-  width: 70%;
+  max-width: fit-content;
+  height: 60vh;
+}
+
+.product .image-container {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgb(14 30 38 / 15%);
+  height: inherit;
+  margin-bottom: 20px;
 }
 
 .product img {
-  width: 100%;
+  width: 800px;
+  height: 100%;
+  object-fit: contain;
 }
 
 .product .content {
