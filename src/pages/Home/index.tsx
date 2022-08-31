@@ -5,10 +5,10 @@ const Home = () => {
     <div className="home">
       Welcome to our shop!
       <p>
-        You are probably interested in <Link to="/products/1">A</Link>
+        You are probably interested in <Link to="/product/1">A</Link>
       </p>
       <p>
-        Check out the newest product <Link to="/products/2">B</Link>!
+        Check out the newest product <Link to="/product/2">B</Link>!
       </p>
     </div>
   );

@@ -1,18 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import App from "App";
 import userEvent from "@testing-library/user-event";
 import Product from "pages/Product";
+import { renderRoute } from "utils/renderRoute";
 
-const renderRoute = () => {
-  const route = "/products/1";
-
-  render(
-    <MemoryRouter initialEntries={[route]}>
-      <App />
-    </MemoryRouter>
-  );
-};
+const productRoute = "/product/1";
 
 const plusSign = "\u002b";
 const minusSign = "\u2212";
@@ -28,7 +19,7 @@ describe("Product", () => {
   });
 
   it("should render a product", async () => {
-    renderRoute();
+    renderRoute(productRoute);
 
     const image = await screen.findByRole("img", { name: /^Product/i });
     const title = await screen.findByText("Product A");
@@ -44,7 +35,7 @@ describe("Product", () => {
   });
 
   it("should increase product quantity after click add To Cart", async () => {
-    renderRoute();
+    renderRoute(productRoute);
 
     const addToCartButton = await screen.findByRole("button", {
       name: plusSign,
@@ -56,7 +47,7 @@ describe("Product", () => {
   });
 
   it("should decrease product quantity after click to remove from Cart", async () => {
-    renderRoute();
+    renderRoute(productRoute);
 
     const addToCartButton = await screen.findByRole("button", {
       name: plusSign,
