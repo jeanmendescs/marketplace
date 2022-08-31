@@ -89,8 +89,12 @@ body {
   padding: 20px;
 }
 
-.product .image {
+.product .description {
   width: 70%;
+}
+
+.product img {
+  width: 100%;
 }
 
 .product .content {
@@ -99,7 +103,7 @@ body {
 }
 
 .product .pricing {
-  width: 100%;
+  width: 30%;
   border: 1px solid #d7dfe3;
   border-radius: 3px;
   background: #fff;
@@ -127,16 +131,15 @@ body {
 }
 
 .actions button {
-  min-height: 40px;
   cursor: pointer;
   background-color: #508dcb;
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
   border: 0 solid transparent;
-  white-space: nowrap;
   width: 40px;
-  font-size: 35px;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 .actions button:hover {

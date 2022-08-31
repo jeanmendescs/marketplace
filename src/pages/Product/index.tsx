@@ -41,13 +41,17 @@ const Product = () => {
       {hasProduct ? (
         <div className="product">
           <div className="content">
-            {product.imageName && (
-              <img
-                src={require(`assets/${product.imageName}`)}
-                alt={product.imageAlt}
-                className="image"
-              />
-            )}
+            <div className="description">
+              {product.imageName && (
+                <img
+                  src={require(`assets/${product.imageName}`)}
+                  alt={product.imageAlt}
+                />
+              )}
+              <h1>{product.name}</h1>
+              <p>{product.description}</p>
+            </div>
+
             <div className="pricing">
               <strong className="currency">
                 {formatCurrency(product.price)}
@@ -68,11 +72,6 @@ const Product = () => {
                 </button>
               </div>
             </div>
-          </div>
-
-          <div className="description">
-            <h1>{product.name}</h1>
-            <p>{product.description}</p>
           </div>
         </div>
       ) : (
