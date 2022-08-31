@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import App from "App";
 import userEvent from "@testing-library/user-event";
@@ -14,6 +14,9 @@ const renderRoute = () => {
   );
 };
 
+const plusSign = "\u002b";
+const minusSign = "\u2212";
+
 describe("Product", () => {
   it("should start without any product listed", () => {
     render(<Product />);
@@ -28,32 +31,43 @@ describe("Product", () => {
     renderRoute();
 
     const image = await screen.findByRole("img", { name: /^Product/i });
-    await waitFor(() => expect(image).toBeInTheDocument());
+    const title = await screen.findByText("Product A");
+    const description = await screen.findByText(/^Lorem ipsum dolor sit amet/i);
+    const quantity = await screen.findByTestId("quantity");
+    const currency = await screen.findByTestId("currency");
+
+    expect(image).toBeInTheDocument();
+    expect(title).toBeInTheDocument();
+    expect(description).toBeInTheDocument();
+    expect(quantity).toBeInTheDocument();
+    expect(currency).toBeInTheDocument();
   });
 
-  it("should increase product quantity after click on Add To Cart button", async () => {
+  it("should increase product quantity after click add To Cart", async () => {
     renderRoute();
 
     const addToCartButton = await screen.findByRole("button", {
-      name: "Add to Cart",
+      name: plusSign,
     });
-    const quantity = await screen.findByText("Quantity: 0");
+    const quantity = await screen.findByTestId("quantity");
+
     userEvent.click(addToCartButton);
-    expect(quantity).toHaveTextContent("Quantity: 1");
+    expect(quantity).toHaveTextContent("1");
   });
 
-  it("should decrease product quantity after click on Remove from Cart button", async () => {
+  it("should decrease product quantity after click to remove from Cart", async () => {
     renderRoute();
 
-    const removeFromCartButton = await screen.findByRole("button", {
-      name: "Remove from Cart",
-    });
     const addToCartButton = await screen.findByRole("button", {
-      name: "Add to Cart",
+      name: plusSign,
     });
-    const quantity = await screen.findByText("Quantity: 0");
+    const removeFromCartButton = await screen.findByRole("button", {
+      name: minusSign,
+    });
+
+    const quantity = await screen.findByTestId("quantity");
     userEvent.click(addToCartButton);
     userEvent.click(removeFromCartButton);
-    expect(quantity).toHaveTextContent("Quantity: 0");
+    expect(quantity).toHaveTextContent("0");
   });
 });

@@ -50,7 +50,7 @@ const Product = () => {
             </div>
 
             <div className="pricing">
-              <strong className="currency">
+              <strong className="currency" data-testid="currency">
                 {formatCurrency(product.price)}
               </strong>
 
@@ -58,7 +58,7 @@ const Product = () => {
                 <button type="button" onClick={() => addProducts(product.id)}>
                   {"\u002b"}
                 </button>
-                <strong className="quantity">
+                <strong className="quantity" data-testid="quantity">
                   {getCartItemQuantity(Number(productId))}
                 </strong>
                 <button
