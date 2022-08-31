@@ -34,11 +34,13 @@ const Product = () => {
           <div className="content">
             <div className="description">
               {product.imageName && (
-                <div className="image-container">
-                  <img
-                    src={require(`assets/${product.imageName}`)}
-                    alt={product.imageAlt}
-                  />
+                <div className="image-wrapper">
+                  <div className="image-container">
+                    <img
+                      src={require(`assets/${product.imageName}`)}
+                      alt={product.imageAlt}
+                    />
+                  </div>
                 </div>
               )}
               <div>

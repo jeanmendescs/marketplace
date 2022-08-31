@@ -5,25 +5,27 @@ const Cart = () => {
   const { cartItems, getCartItemsTotalPrice } = useCartItems();
 
   return (
-    <>
+    <div className="cart">
       {!!cartItems.length ? (
-        <div>
+        <>
           Are you ready to purchase these?
           <ul>
             {cartItems.map((cartItem) => (
-              <CartItem
-                id={cartItem.id}
-                quantity={cartItem.quantity}
-                key={cartItem.id}
-              />
+              <li>
+                <CartItem
+                  id={cartItem.id}
+                  quantity={cartItem.quantity}
+                  key={cartItem.id}
+                />
+              </li>
             ))}
           </ul>
           <span>Total: {getCartItemsTotalPrice}</span>
-        </div>
+        </>
       ) : (
         "Your shopping cart is empty."
       )}
-    </>
+    </div>
   );
 };
 

@@ -16,7 +16,7 @@ const Header = () => {
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="cart-item">
+            <Link to="/cart" className="cart-icon-wrapper">
               <img src={cartIcon} alt="Cart icon" className="cart-icon" />
               <span className="quantity">{getCartTotalItemsQuantity}</span>
             </Link>
