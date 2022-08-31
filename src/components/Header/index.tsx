@@ -11,12 +11,12 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/" className="home">
+            <Link to="/" className="home" role="navigation">
               Home
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="cart-icon-wrapper">
+            <Link to="/cart" className="cart-icon-wrapper" role="navigation">
               <img src={cartIcon} alt="Cart icon" className="cart-icon" />
               <span className="quantity">{getCartTotalItemsQuantity}</span>
             </Link>
