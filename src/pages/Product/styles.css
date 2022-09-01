@@ -96,10 +96,6 @@
     font-size: 15px;
   }
 
-  .product .actions {
-    margin-top: 10px;
-  }
-
   .product .actions button {
     width: 30px;
     font-size: 25px;
@@ -118,6 +114,10 @@
   .product .quantity {
     font-size: 14px;
   }
+
+  .product .content {
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -133,6 +133,7 @@
 
   .product .actions {
     margin-top: 5px;
+    gap: 7px;
   }
 
   .product .actions button {
@@ -143,7 +144,7 @@
   }
 
   .product .currency {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .product .pricing {
@@ -151,7 +152,7 @@
   }
 
   .product .quantity {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
