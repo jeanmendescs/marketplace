@@ -4,6 +4,7 @@ import { useCartItems } from "contexts/CartContext";
 import axios from "axios";
 import { formatCurrency } from "utils/formatCurrency";
 import { initialState } from "./initialState";
+import "./styles.css";
 
 const Product = () => {
   const { productId } = useParams();
@@ -48,8 +49,8 @@ const Product = () => {
                 </div>
               )}
               <div>
-                <h1>{product.name}</h1>
-                <p>{product.description}</p>
+                <h1 className="title">{product.name}</h1>
+                <p className="description">{product.description}</p>
               </div>
             </div>
 
