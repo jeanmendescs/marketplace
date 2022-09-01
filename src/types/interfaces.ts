@@ -10,6 +10,7 @@ export interface Product {
 export interface CartItem {
   id: number;
   quantity: number;
+  hideActionButtonsAndTotal?: boolean;
 }
 
 export interface ShoppingCartProviderProps {
