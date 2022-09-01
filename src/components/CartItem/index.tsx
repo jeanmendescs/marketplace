@@ -3,6 +3,7 @@ import PRODUCTS from "data/products.json";
 import { formatCurrency } from "utils/formatCurrency";
 import { useCartItems } from "contexts/CartContext";
 import { Link } from "react-router-dom";
+import "./styles.css";
 
 const CartItem = ({
   id,
