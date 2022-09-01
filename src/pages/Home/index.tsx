@@ -10,7 +10,11 @@ const Home = () => {
     axios
       .get("cgtrader.test.com/products")
       .then(({ data }) => setProducts(data))
-      .then((err) => console.error(err));
+      .catch((err) => {
+        if (err) {
+          console.error(err);
+        }
+      });
   }, []);
 
   return (

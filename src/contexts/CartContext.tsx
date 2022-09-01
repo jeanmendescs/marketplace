@@ -6,7 +6,7 @@ import {
 } from "types/interfaces";
 import PRODUCTS from "data/products.json";
 
-const CartContext = createContext({} as CartContextProps);
+export const CartContext = createContext({} as CartContextProps);
 
 export const useCartItems = () => {
   return useContext(CartContext);

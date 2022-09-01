@@ -21,7 +21,11 @@ const Product = () => {
 
           if (findProductByProductId) setProduct(findProductByProductId);
         })
-        .catch((err) => console.error(err));
+        .catch((err) => {
+          if (err) {
+            console.error(err);
+          }
+        });
     }
   }, [productId]);
 
