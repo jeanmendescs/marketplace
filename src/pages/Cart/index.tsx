@@ -1,5 +1,7 @@
 import { useCartItems } from "contexts/CartContext";
 import CartItem from "components/CartItem";
+import { formatCurrency } from "utils/formatCurrency";
+import "./styles.css";
 
 const Cart = () => {
   const { cartItems, getCartItemsTotalPrice } = useCartItems();
@@ -8,7 +10,7 @@ const Cart = () => {
     <div className="cart">
       {!!cartItems.length ? (
         <>
-          Are you ready to purchase these?
+          <p>Are you ready to purchase these?</p>
           <ul>
             {cartItems.map((cartItem) => (
               <li>
@@ -20,7 +22,9 @@ const Cart = () => {
               </li>
             ))}
           </ul>
-          <span>Total: {getCartItemsTotalPrice}</span>
+          <h2 className="total">
+            Final price: {formatCurrency(getCartItemsTotalPrice)}
+          </h2>
         </>
       ) : (
         "Your shopping cart is empty."
