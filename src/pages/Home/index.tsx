@@ -2,6 +2,7 @@ import axios from "axios";
 import CartItem from "components/CartItem";
 import { useEffect, useState } from "react";
 import { Product } from "types/interfaces";
+import "./styles.css";
 
 const Home = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -19,7 +20,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      Welcome to our shop!
+      <h1 className="welcome">Welcome to our shop!</h1>
       {!!products.length && (
         <div className="products">
           {products.map((product) => (
