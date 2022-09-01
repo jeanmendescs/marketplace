@@ -224,3 +224,8 @@ body {
 .home {
   padding: 20px;
 }
+
+.home .products {
+  display: flex;
+  gap: 10px;
+}
