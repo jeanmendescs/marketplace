@@ -1,17 +1,18 @@
 import { Link } from "react-router-dom";
 import { useCartItems } from "contexts/CartContext";
 import cartIcon from "assets/cart.svg";
+import "./styles.css";
 
 const Header = () => {
   const { getCartItemsTotalQuantity: getCartTotalItemsQuantity } =
     useCartItems();
   return (
     <header className="header">
-      <h1>Marketplace</h1>
+      <h1 className="title">Marketplace</h1>
       <nav>
         <ul>
           <li>
-            <Link to="/" className="home" role="navigation">
+            <Link to="/" className="home-nav" role="navigation">
               Home
             </Link>
           </li>
